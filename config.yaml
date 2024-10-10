@@ -1,0 +1,23 @@
+data:
+  train_path: data/dataset-rs-2020-2021.dbf
+
+model:
+  symptoms: [FEBRE, MIALGIA, CEFALEIA, EXANTEMA, NAUSEA, DOR_COSTAS, ARTRALGIA, PETEQUIA_N, DOR_RETRO]
+  features: [FEBRE, MIALGIA, CEFALEIA, EXANTEMA, NAUSEA, DOR_COSTAS, ARTRALGIA, PETEQUIA_N, DOR_RETRO, AGE, SYMPTOM_ONSET_MONTH]
+  target: [CLASSI_FIN]
+  processing_columns: [CRITERIO, RESUL_SORO, RESUL_NS1, NU_IDADE_N, DT_SIN_PRI]
+  target_years: [2020, 2021]
+  parameters:
+    bootstrap: true
+    class_weight:
+      0: 1.25
+      1: 1
+    max_depth: 8
+    max_features: sqrt
+    n_estimators: 250
+  store_path: models/
+
+training:
+  test_size: 0.3
+
+random_state: 42
