@@ -35,7 +35,7 @@ def predict():
         'DOR_RETRO': int(request_body.get('dorRetro', False)),
         # Other features
         'AGE': get_age_from_idade(request_body.get('idade')),
-        'SYMPTOM_ONSET_MONTH': pd.to_datetime(request_body.get('dataDiagnosticoSintoma')).month,
+        'SYMPTOM_ONSET_MONTH': pd.to_datetime(request_body.get('dataDiagnosticoSintoma'), dayfirst=True).month,
     }
     df = pd.DataFrame([data])
 
